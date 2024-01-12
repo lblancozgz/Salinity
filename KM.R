@@ -140,9 +140,6 @@ survdiff(Surv(days_adult, censored_ad) ~ Salinity, data = df, rho = 1)  #Prueba 
 survdiff(Surv(days_adult, censored_ad) ~ Salinity + strata(sex), data = df, rho = 0) #Prueba log-rank adults
 survdiff(Surv(days_adult, censored_ad) ~ Salinity+ strata(sex), data = df, rho = 1)  #Prueba log-rank adults
 
-df <- na.omit(df)
-pairwise.logrank$p.value <- as.data.frame(pairwise_survdiff(Surv(L1PUPA, censored_im) ~ GROUP2, data = df, rho = 0))
-writexl::write_xlsx(pairwise.logrank, path="C:\\Users\\lblan\\OneDrive\\Escritorio\\ThirdCap\\pairwise_logrank_results.xlsx")
 
 
 #plots
