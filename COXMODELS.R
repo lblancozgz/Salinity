@@ -87,10 +87,10 @@ ggcoxzph(cox.zph(m1_sex))
 ggcoxdiagnostics(m1_sex, type = "dfbetas")
 
 
-m1_sexf <- coxph(Surv(days_adult, censored_ad) ~  GROUP2*factor(sex) +factor(sex), data = dfdistilled)
-summary(m1_sexf)
-cox.zph(m1_sexf)
-plot(cox.zph(m1_sexf))
+# m1_sexf <- coxph(Surv(days_adult, censored_ad) ~  GROUP2*factor(sex) +factor(sex), data = dfdistilled)
+# summary(m1_sexf)
+# cox.zph(m1_sexf)
+# plot(cox.zph(m1_sexf))
 
 
 
@@ -113,6 +113,14 @@ control$sex <- as.factor(control$sex)
 str(control$GROUP)
 #comparing survival with immature stages
 cox_control <- coxph(Surv(days_lived_im, censored_im) ~ GROUP, data = control)
+summary(cox_control)
+plot(cox.zph(cox_control))
+cox.zph(cox_control)
+ggcoxzph(cox.zph(cox_control))
+ggcoxdiagnostics(cox_control, type = "dfbetas")
+str(control$GROUP)
+
+cox_control <- coxph(Surv(total_lived, censored_ad) ~ GROUP, data = control)
 summary(cox_control)
 plot(cox.zph(cox_control))
 cox.zph(cox_control)
